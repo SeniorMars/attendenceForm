@@ -13,4 +13,4 @@ def fill_form(username, password):
     click('Submit')
     kill_browser()
 
-fill_form(#yourusername@stuy.edu, password)
+# fill_form(#yourusername@stuy.edu, password)
