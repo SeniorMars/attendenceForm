@@ -8,7 +8,7 @@ Uncomment and modify the file Form.py at then end and putting inputs in fill_for
 
 or 
 
-python -i Form.by
+python -i Form.py
 > fill_form(user name, pass)
 
 If you have chrome switch start_firefox() for start_chrome. Only two supported browsers.
