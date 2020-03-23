@@ -1,12 +1,12 @@
-# attendance Form
-basic python script
+# Attendance Form
+A python script to automatically filled out the attendance form
 
 do:
 > pip install --user -r requirements.txt
 
 Uncomment and modify the file Form.py at then end and putting inputs in fill_form() with your username and password in quotes.
 
-or 
+or
 
 python -i Form.py
 > fill_form(user name, pass)
