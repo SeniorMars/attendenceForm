@@ -1,7 +1,7 @@
 # attendance Form
 basic python script
 
-Modify the file Form.py at then end and switching out the comments in fill_form() with your username and password in quotes.
+Modify the file Form.py at the end and switching out the comments in fill_form() with your username and password in quotes.
 
 or 
 
