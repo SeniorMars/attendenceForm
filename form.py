@@ -1,9 +1,7 @@
-import helium
+from helium import *
 
 def fill_form(username, password):
-    start_firefox(
-        'https://docs.google.com/forms/d/e/1FAIpQLScSW4ZPkJZN_i84epira40_ndrlsMz-avMcXoGUz7JYsJY2Gg/viewform?vc=0&c=0&w=1',
-    headless=True)
+    start_firefox('https://docs.google.com/forms/d/e/1FAIpQLScSW4ZPkJZN_i84epira40_ndrlsMz-avMcXoGUz7JYsJY2Gg/viewform?vc=0&c=0&w=1')
     write(username, into='Email')
     click('Next')
     write(password, into='Enter')
