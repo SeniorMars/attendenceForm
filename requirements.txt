@@ -1,1 +1,4 @@
-helium==3.0.2
+beautifulsoup4==4.8.2
+helium==3.0.2	
+requests==2.23.0
+schedule==0.6.0
