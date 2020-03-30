@@ -12,7 +12,7 @@ However, you probably don't want a terminal running with a foreground process. I
 
 > nohup python -u form.py &
 
-This makes it a background process and allows the script to run as intended. Not test on mac, but as long as you have nohup it should work.
+This makes it a background process and allows the script to run as intended. Not tested on mac, but as long as you have nohup it should work.
 
 
 
