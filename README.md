@@ -16,7 +16,7 @@ This makes it a background process and allows the script to run as intended. Not
 
 
 
-You could also do the following to allow the script to run. Make sure the script runs.
+You could also do the following to allow the script to run. Make sure the put your username and email.
 
 or
 
