@@ -1,14 +1,43 @@
-from helium import *
+import requests
+import schedule
+import time
+from bs4 import BeautifulSoup
+from helium import click, kill_browser, start_chrome, start_firefox, write
 
-def fill_form(username, password):
-    start_firefox('https://docs.google.com/forms/d/e/1FAIpQLScSW4ZPkJZN_i84epira40_ndrlsMz-avMcXoGUz7JYsJY2Gg/viewform?vc=0&c=0&w=1')
+username = "user@stuy.edu"  # change
+password = "pssd"  # change
+fill_form_time = "08:30"  # the time the script runs. 24-hour time to change.
+form_supplier = "http://homer.stuy.edu/~chernandez10/email/get_link.py"
+
+
+def fill_form():
+    response = requests.get(form_supplier)
+    soup = BeautifulSoup(response.text, "html.parser")
+    attendence_form_url = soup.find('p').contents[0]
+    start_firefox(attendence_form_url, headless=True)
+    # start_chrome(attendence_form_url, headless=True) #if you have chrome
     write(username, into='Email')
     click('Next')
     write(password, into='Enter')
     click('Next')
     click('Yes')
     write('None', into="Questions")
+    # click("Send me a copy") #optional
     click('Submit')
     kill_browser()
 
-# fill_form(#yourusername@stuy.edu, password)
+
+def schedule_weekedays():  # schedule doesn't have a weekday option :(
+    # will run accoring to fill_form_time
+    schedule.every().monday.at(fill_form_time).do(fill_form)
+    schedule.every().tuesday.at(fill_form_time).do(fill_form)
+    schedule.every().wednesday.at(fill_form_time).do(fill_form)
+    schedule.every().thursday.at(fill_form_time).do(fill_form)
+    schedule.every().friday.at(fill_form_time).do(fill_form)
+
+    while True:
+        schedule.run_pending()
+        time.sleep(60)
+
+
+schedule_weekedays()
