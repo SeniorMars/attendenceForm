@@ -5,9 +5,23 @@ import time
 from bs4 import BeautifulSoup
 from helium import click, kill_browser, start_chrome, start_firefox, write
 
-username = "user@stuy.edu"  # change
-password = "pssd"  # change
-fill_form_time = "08:30"  # the time the script runs. 24-hour time to change.
+# You can change the settings in secrets.txt. Make sure to keep the space
+
+with open("secrets.txt", 'r') as credientals:
+    cred = credientals.read()
+data = {}
+lines = cred.split('\n')
+for line in lines:
+    elements = line.split(' ')
+    key = elements[0]
+    if key != '':
+        data[key] = elements[1]
+
+# change in secrets.txt
+username = data['username']
+password = data['password']
+osis = data['osis']
+fill_form_time = data['fill_form_time']
 form_supplier = "http://homer.stuy.edu/~chernandez10/email/get_link.py"
 
 
@@ -22,6 +36,7 @@ def fill_form():
     write(password, into='Enter')
     click('Next')
     click('Yes')
+    write(osis, into="What is your OSIS number?")
     write('None', into="Questions")
     # click("Send me a copy") #optional
     click('Submit')
