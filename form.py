@@ -7,15 +7,15 @@ from helium import click, kill_browser, start_chrome, start_firefox, write
 
 # You can change the settings in secrets.txt. Make sure to keep the space
 
+data = {}
 with open("secrets.txt", 'r') as credientals:
     cred = credientals.read()
-data = {}
-lines = cred.split('\n')
-for line in lines:
-    elements = line.split(' ')
-    key = elements[0]
-    if key != '':
-        data[key] = elements[1]
+    lines = cred.split('\n')
+    for line in lines:
+        elements = line.split(' ')
+        key = elements[0]
+        if key != '':
+            data[key] = elements[1]
 
 # change in secrets.txt
 username = data['username']
